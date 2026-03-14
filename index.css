@@ -18,13 +18,13 @@ section {
     margin-bottom: 1em;
 }
 .user-input-container {
-    border: 2px dotted;
     padding: 0.5em 0.2em;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 0.3em;
 }
+
 .color-input {
     border: none;
     border-radius: 4px;
@@ -35,26 +35,32 @@ section {
 
 .mode-select {
     max-width: 45%;
-    padding: 0.2em 0.5em;
+    padding: 0.3em 0.5em;
     border: 1px solid #D5D4D8;
     border-radius: 6px;
 }
 
 .get-color-scheme-btn {
-    margin-left: auto;
-    margin-bottom: auto;
     max-width: 45%;
     padding: 0.5em;
     border: none;
     border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+.get-color-scheme-btn:hover,
+.get-color-scheme-btn:focus,
+.get-color-scheme-btn:active {
+    background-color: #576278;
+}
+
 .color-display-container {
-    border: 2px dotted;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1em;
     grid-auto-rows: 300px;
     padding: 0.5em;
+    justify-content: center;
 }
 .color-display-container > div {
     border-radius: 4px;
@@ -75,8 +81,6 @@ section {
 
 }
 
-
-
 /* Typography */
 
 .color-input {
@@ -85,13 +89,16 @@ section {
 .mode-select {
     color: #fff;
     background-color: inherit;
-    font-size: 0.8125;
-
+    font-size: 0.8125rem;
+}
+.mode-select option {
+    background-color: #1F293A;
+    color: #fff;
 }
 
 .get-color-scheme-btn {
     background-color: #3D4B60;
-    color: #fff;
+    color: #e0e0e0;
     font-size: 0.85rem;
     font-weight: 600;
 }
@@ -100,6 +107,46 @@ section {
     color:black;
     text-align: center;
     font-size: 0.75rem;
-
 }
 
+/* Media Query */
+
+@media (max-width: 767px) {
+    .get-color-scheme-btn {
+        margin-left: auto;
+        margin-bottom: auto;
+    }
+}
+@media (min-width: 768px) {
+    /* Layout */
+    .user-input-container {
+        justify-content: center;
+        gap: 1em;
+    }
+
+    .mode-select {
+        width: 60%;
+        max-width: 400px;
+    }
+
+    .color-display-container {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    .color-display-container > div {
+        max-width: 200px;
+    }
+
+    /* Typography */
+    .mode-select,
+    .get-color-scheme-btn {
+        font-size: 1rem;
+    }
+
+    .color-display-container > div span {
+        font-size: 0.875rem;
+    }
+
+
+}
