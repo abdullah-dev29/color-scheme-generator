@@ -8,8 +8,8 @@ function renderColors() {
   getColorScheme(data.inputValue, data.selectedMode, data.count)
   .then((colorsArray) => {
         document.getElementById('color-display-container').innerHTML = getFeedHtml(colorsArray)
-        document.querySelectorAll(".hex-code").forEach(strongEl => { // selects all elements with the class hex-code & Loops through each element in that list.
-            strongEl.addEventListener('click', () => { // For each one, we attach a click event.
+        document.querySelectorAll(".hex-code").forEach(strongEl => {  // selects all elements with the class hex-code & Loops through each element in that list.
+            strongEl.addEventListener('click', () => {               // For each one, we attach a click event.
                 navigator.clipboard.writeText(strongEl.textContent) // Copies the text inside the element to the clipboard.
             })
         })

@@ -17,6 +17,7 @@ body {
 section {
     margin-bottom: 1em;
 }
+
 .user-input-container {
     padding: 0.5em 0.2em;
     display: flex;
@@ -48,6 +49,7 @@ section {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
 .get-color-scheme-btn:hover,
 .get-color-scheme-btn:focus,
 .get-color-scheme-btn:active {
@@ -62,6 +64,7 @@ section {
     padding: 0.5em;
     justify-content: center;
 }
+
 .color-display-container > div {
     border-radius: 4px;
     display: flex;           
@@ -75,22 +78,31 @@ section {
     padding: 0.2em 0.5em;
 }
 
+.hex-code {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
 
-.one{
-    background-color: black;
+.hex-code:hover {
+    opacity: 0.7;
+}
 
+.hex-code:active {
+    opacity: 0.5;
+    transform: scale(0.95); 
 }
 
 /* Typography */
-
 .color-input {
     background-color: #FFFDFE;
 }
+
 .mode-select {
     color: #fff;
     background-color: inherit;
     font-size: 0.8125rem;
 }
+
 .mode-select option {
     background-color: #1F293A;
     color: #fff;
@@ -102,6 +114,7 @@ section {
     font-size: 0.85rem;
     font-weight: 600;
 }
+
 .color-display-container > div span {
     background-color: #fff;
     color:black;
@@ -110,13 +123,14 @@ section {
 }
 
 /* Media Query */
-
 @media (max-width: 767px) {
+    /* Layout */
     .get-color-scheme-btn {
         margin-left: auto;
         margin-bottom: auto;
     }
 }
+
 @media (min-width: 768px) {
     /* Layout */
     .user-input-container {
@@ -147,6 +161,4 @@ section {
     .color-display-container > div span {
         font-size: 0.875rem;
     }
-
-
 }
