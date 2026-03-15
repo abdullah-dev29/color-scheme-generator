@@ -1,6 +1,4 @@
-const getcolorSchemeBtn = document.getElementById("get-color-scheme-btn")
-getcolorSchemeBtn.addEventListener('click', renderColors)
-
+document.getElementById("get-color-scheme-btn").addEventListener('click', renderColors)
 function renderColors() {
   const data = {
     inputValue: document.getElementById("color-input").value.slice(1),
@@ -10,6 +8,11 @@ function renderColors() {
   getColorScheme(data.inputValue, data.selectedMode, data.count)
   .then((colorsArray) => {
         document.getElementById('color-display-container').innerHTML = getFeedHtml(colorsArray)
+        document.querySelectorAll(".hex-code").forEach(strongEl => { // selects all elements with the class hex-code & Loops through each element in that list.
+            strongEl.addEventListener('click', () => { // For each one, we attach a click event.
+                navigator.clipboard.writeText(strongEl.textContent) // Copies the text inside the element to the clipboard.
+            })
+        })
     })
 }
 
@@ -24,7 +27,7 @@ function getFeedHtml(arr) {
     arr.forEach((item) => {
         html += `
         <div style="background-color:${item.hex.value}">
-            <span>HEX: <strong>${item.hex.value}</strong></span>
+            <span>HEX: <strong class="hex-code">${item.hex.value}</strong></span>
         </div>
         `
     })
